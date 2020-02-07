@@ -1,0 +1,67 @@
+---
+- hosts: all
+
+  tasks:
+
+    - name: Ensure git is installed 
+      apt:
+        name: git
+        state: present
+
+#    - name: Install pip 2 
+#      apt:
+#         name: python-pip
+#         state: present 
+#
+#
+#    - name: Install setuptools 2 
+#      apt:
+#         name: python-setuptools
+#         state: present 
+
+    - name: Ensure pip3 is installed 
+      apt:
+        name: python3-pip 
+        state: present
+
+
+    - name: Ensure setuptools is installed 
+      apt:
+        name: python3-setuptools
+        state: present
+
+    - name: Install pyserial with pip
+      pip:
+        name: pyserial
+
+
+    - name: Install Pillow with pip
+      pip:
+        name: Pillow
+
+    -  name: Get gonet3 repo from GitHub
+       git: 
+        dest: /home/pi/Tools/Camera
+        repo: "https://github.com/Wied58/gonet3.git"
+        update: yes
+        force: yes
+
+    - name: Change owership and permissions
+      file:
+        path: /home/pi/Tools/Camera
+        state: directory
+        owner: pi 
+        group: pi
+        # when specifying mode using octal numbers, add a leading 0
+        mode: 0755
+        recurse: yes
+
+    - name: Transfer the update Version script
+      copy: src=fetch_git_hash.sh dest=/home/pi/Tools/Camera mode=0755 
+
+    - name: Execute the update Version script
+      command:  /home/pi/Tools/Camera/fetch_git_hash.sh
+      become_user: pi
+
+
+
