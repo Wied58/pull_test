@@ -3,11 +3,11 @@
 
   tasks:
 
-    - name: Ensure git is installed 
-      apt:
-        name: git
-        state: present
-
+#    - name: Ensure git is installed 
+#     apt:
+#        name: git
+#        state: present
+#
 #    - name: Install pip 2 
 #      apt:
 #         name: python-pip
