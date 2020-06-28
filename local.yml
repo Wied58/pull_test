@@ -18,10 +18,10 @@
 #         state: present 
 #
 #
-#    - name: Install setuptools 2 
-#      apt:
-#         name: python-setuptools
-#         state: present 
+    - name: Install setuptools 2 
+      apt:
+         name: python-setuptools
+         state: present 
 
     - name: Ensure pip3 is installed 
       apt:
