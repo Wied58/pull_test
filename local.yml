@@ -42,7 +42,7 @@
     - name: Install Pillow with pip
       pip:
         name: Pillow
-     executable: pip3
+        executable: pip3
      
     -  name: Get gonet3 repo from GitHub
        git: 
