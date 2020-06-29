@@ -61,12 +61,12 @@
         mode: 0755
         recurse: yes
 
-    - name: Transfer the update Version script
-      copy: src=fetch_git_hash.sh dest=/home/pi/Tools/Camera mode=0755 
-
-    - name: Execute the update Version script
-      command:  /home/pi/Tools/Camera/fetch_git_hash.sh
-      become_user: pi
+#    - name: Transfer the update Version script
+#      copy: src=fetch_git_hash.sh dest=/home/pi/Tools/Camera mode=0755 #
+#
+#    - name: Execute the update Version script
+#      command:  /home/pi/Tools/Camera/fetch_git_hash.sh
+#      become_user: pi
 
 
 
